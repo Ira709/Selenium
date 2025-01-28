@@ -17,7 +17,7 @@ import java.util.UUID;
 public class DemoQaTests {
     private WebDriver driver;
 
-    @BedoreMethod
+    @BeforeMethod
     public void configureDriver() {
         System.setProperty("webdriver.chrome.driver", "/Users/trojan4ik/Downloads/chromedriver-mac-x64/chromedriver");
 
@@ -32,7 +32,6 @@ public class DemoQaTests {
     public void loginUser() {
         final String userName = "v3";
         final String password = "P@ssW0rd";
-        final String password1 = "docker";
 
         driver.get("https://demoqa.com/login");
 
@@ -57,32 +56,13 @@ public class DemoQaTests {
     @Test
     public void loginUser_useNonExistentUserName() {
 
-        UUID.randomUUID().toString();
+        final String userName34 = UUID.randomUUID().toString();
+        final String password1 = "docker";
 
         driver.get("https://demoqa.com/login");
 
         WebElement userNameInput = driver.findElement(By.id("UUID.randomUUID().toString();"));
         userNameInput.sendKeys(UUID.randomUUID().toString());
-
-        WebElement passwordInput = driver.findElement(By.cssSelector("#password"));
-        passwordInput.sendKeys(password);
-
-        scrollToBottomUsing(driver);
-
-        WebElement loginButton = driver.findElement(By.xpath("//*[@id='login']"));
-        loginButton.click();
-
-        WebElement userNameValue = driver.findElement(By.id("userName-value"));
-        Assert.assertEquals(userNameValue.getText(), userName , "Invalid username or password!");
-    }
-
-    @Test
-    public void loginUser_incorrectPassword() {
-
-        driver.get("https://demoqa.com/login");
-
-        WebElement userNameInput = driver.findElement(By.id("userName"));
-        userNameInput.sendKeys(userName);
 
         WebElement passwordInput = driver.findElement(By.cssSelector("#password1"));
         passwordInput.sendKeys(password1);
@@ -93,7 +73,30 @@ public class DemoQaTests {
         loginButton.click();
 
         WebElement userNameValue = driver.findElement(By.id("userName-value"));
-        Assert.assertEquals(userNameValue.getText(), password, "Invalid username or password!");
+        Assert.assertEquals(userNameValue.getText(), userName34 , "Invalid username or password!");
+    }
+
+    @Test
+    public void loginUser_incorrectPassword() {
+
+        final String userName = "v3";
+        final String password4 = "docker45";
+
+        driver.get("https://demoqa.com/login");
+
+        WebElement userNameInput = driver.findElement(By.id("userName"));
+        userNameInput.sendKeys(userName);
+
+        WebElement passwordInput = driver.findElement(By.cssSelector("#password1"));
+        passwordInput.sendKeys(password4);
+
+        scrollToBottomUsing(driver);
+
+        WebElement loginButton = driver.findElement(By.xpath("//*[@id='login']"));
+        loginButton.click();
+
+        WebElement userNameValue = driver.findElement(By.id("userName-value"));
+        Assert.assertEquals(userNameValue.getText(), password4, "Invalid username or password!");
     }
 
     @Test
