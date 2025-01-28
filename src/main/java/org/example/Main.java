@@ -8,11 +8,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
 
 public class Main {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "/Users/trojan4ik/Downloads/chromedriver-mac-arm64");
+        System.setProperty("webdriver.chrome.driver", "/Users/trojan4ik/Desktop/Projects/chromedriver-mac-arm64/chromedriver");
 
         WebDriver driver = new ChromeDriver();
 

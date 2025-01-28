@@ -19,7 +19,7 @@ public class DemoQaTests {
 
     @BedoreMethod
     public void configureDriver() {
-        System.setProperty("webdriver.chrome.driver\", \"/Users/trojan4ik/Downloads/chromedriver-mac-arm64");
+        System.setProperty("webdriver.chrome.driver", "/Users/trojan4ik/Desktop/Projects/chromedriver-mac-arm64/chromedriver");
 
         this.driver = new ChromeDriver();
 
