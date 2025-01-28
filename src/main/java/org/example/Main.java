@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "/Users/trojan4ik/Desktop/Projects/chromedriver-mac-arm64/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/Users/trojan4ik/Downloads/chromedriver-mac-x64/chromedriver");
 
         WebDriver driver = new ChromeDriver();
 
